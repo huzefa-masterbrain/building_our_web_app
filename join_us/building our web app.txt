@@ -1,0 +1,1033 @@
+section 21
+OPTIONAL LEGACY SECTION:
+
+building our web app
+
+364: REMINDER: set up a local coding enviroment...
+
+365: section introduction
+
+join us finished code
+
+
+completed code for our join us mailing list application.
+
+JOIN US
+enter your email to join 518 other on our wartlist we are 100% not a cult
+
+enter your email join now
+---------------------------------------------------------------------------------------------------------------------------
+
+367: INTRODUCING EXPRESS
+
+MOVING ON TO THE WEB APP
+IT'S TIME TO MEET EXPRESS
+
+THE FRAMEWORK WE'LL BE USING TO MAKE JOIN US
+
+https://expressjs.com
+
+Express
+      fast , unopinionated,
+      minimalist web
+      framework for node.js
+
+$ npm install express --save
+
+nodeframework.com
+
+MVC - MODUEL VIEW CONTROLLER FRAMEWORKS
+
+sinatra -like
+
+these framework offer rich configuration and are less opinionated than Rails -like of full -stalk
+----------------------------------------
+sinara -like        |  Rails -like      |
+----------------------------------------    
+express *           |  nodal            |
+hapi                |  compoundjs       |
+flation             |  geddy            |
+locomotive          |  sail.js          |
+total.js            |  adonis           |
+koa.ja *            |  Rhapsodyjs       |
+twee.io             |  strapi           |
+diet.js             |  Thinksjs         |
+flicker.js          |  Trails           |
+----------------------------------------
+
+| 🍩 Simple (Sinatra-like) | 🍰 Fancy (Rails-like) |
+| ------------------------ | --------------------- |
+| Express (our hero 🦸‍♂️)   |   Nodal               |
+| Hapi                     | CompoundJS            |
+| Koa                      | Adonis                |
+
+https://expressjs.com/en/4x/api
+
+Rails -like
+present your project properly. create your own art from included temples.
+
+* Are getting popular framework
+
+https://expressjs.com/en/4x/api
+
+HOME|GETTING STARTED|GUIDE|API referance|Advance topics|resources|
+-------------------------------------------------------------------------------------------------------------------
+
+368: NPM init and package.json files
+
+starting nice and simple
+what the heck does this do
+
+npm init
+(its a fast way of starting a new app)
+
+https://github.com/expressjs/express/blob/master/package.json
+
+branch:master express/package.json
+
+make a new folder joinus
+
+terminal:
+ls
+cd
+ls
+npm init 
+
+name:join_us
+vresion:
+description:
+entry point:(index.js) app.js
+kept press enter until done
+is this ok?(yes)
+
+npm install express --save
+npm install faker mysql --save
+
+you need to use your local system terminal (Powershell or command prompt on windows,for exampls,or
+to run and preview appslocally,we define the port that the app is listening to like this
+
+app.listen(8080 , function() {
+    console.log("server running on 8080!");
+});
+
+When you start your app locally in your terminal,
+you will be able to preview your app by going into your ,browser and typing 
+localhost:8080 in the broser address bar.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+370: OUR FIRST SIMPLE WEB APP
+
+https://webdev.slides.com
+
+OUR FIRST SUPER SIMPLE EXPRESS APP
+
+var express = require ('express');
+var app = express();
+
+app.get("/" , function(req , res) {
+   res.send("HELLO FROM OUR WEB APP!");
+});
+
+app.listen(8080,function() {
+   console.log('App listening on port 8080!');
+});
+
+create a new file inside the folder called node_modules
+
+<>app.js
+<>package.json
+
+var express = require('express');
+var app = express();
+
+app.listen(8080,function(){
+  console.log("server runnung on 8080!");
+});
+
+terminal 
+node app.js
+
+server running on 8080!
+^c restart the server
+
+var express = require('express');
+var app = express();
+
+app.get("/",function(req,res){
+    console.log("SOMEONE REQESTED US!);
+});
+
+
+var express = require('express');
+var app = express();
+
+app.get("/",function(req,res){
+ res.send("you've reached the home page!");
+});
+
+app.listen(8080,fuction(){
+  console.log("server running on 8080!");
+});
+
+TERMINAL:
+node app.js
+
+server running on 8080!
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+371: CODE:OUR FIRST SIMPLE WEB APP
+     CODE OUR FIRST SIMPLE WEB APP:
+
+Add to your app.js file:
+
+var express = require('express');
+var app = express();
+
+app.get("/"function(req,res){
+  res.send("HELLO FROM OUR WEB APP!");
+});
+
+app.listen(8080,function(){
+console.log('App listening on port 8080!');
+});
+
+Remember to start the server up:
+
+node app.js
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+372: ADDING MULTIPLE ROUTES
+
+https://c9.io/support
+
+routing pseudocode
+
+    1.Did the client request"/"?
+
+respond with "WELCOMETO THE HOME PAGE"
+
+    2. Did the client request "/JOKE"?
+Respond with "knock knock...."
+
+Adding Another Route
+
+app.get("/joke",function(req.res){
+   var joke ="what do you call a dog that does magic trick? a laracadarader.";
+   res.send(joke);
+});
+
+app.js
+app.get ("/joke",function(req,res){
+  var joke ="what do you call a dog that does magic trides? a labracadabrodor".:
+  console.log ("REQUESTED THE JOKE ROUTE!);
+});
+
+node app.js
+server running on 8080!
+REQUESTERD THE JOKE ROUTE!
+
+app.get("/joke",function(req,res){
+ var joke ="what do you call a dog that does magic trickes ? a labracodabrodor.";
+ res.send(joke);
+
+node app.js
+server running on 8080!
+
+preview on wedpage
+what do you call a dog that does magic tricks? a labracadubrador.
+
+One Last Route
+
+app.get("/random_num",function(req,res){
+ var num = math.floor(math.random()*10)+1);
+ res.send("your luck number is " + num);
+});
+
+app.js
+app.get("/ramdom_num",function(req,res){
+ res.send("7");
+});
+
+changing in the code above
+
+app.get("/random_num",function(req,res){
+  math.random()*10;
+ res.send("7");
+});
+
+terminal
+node
+math.random()*10; enter
+8.654026833828539
+
+app.get ("/random_num",function(req,res){
+ math.floor(math.random()*10);
+ res.send("7");
+});
+
+node
+>math.floor(math.random()*10); enter
+8
+
+>math.floor(math.random()*10); enter
+0
+
+app.get("/random_num",function(req,res){
+ math.floor(math.random()*10+1;
+ res.send("7");
+});
+
+node
+>math.floor(math.random()*10)+1;
+2
+
+>math.floor(math.random()*10)+1; enter
+10
+
+app.get("/random_num",function(res.res){
+ var num = math.floor(math.random()*10)+1;
+ res.send("your lucky number is "+num);
+});
+
+bash
+cntrl+c
+cntrl+c 
+(to exit,press ^c again or type.exit)
+
+node app.js
+go to browser to check
+
+refresh again it will change
+your lucky number is ?
+
+NOTE: When following this section via the local computer MYSQL and Node.js Installation,
+don't forgot to use the mysql2 package and use this update
+node app database connection code:
+
+/*
+First install the mysql2 package with this command in your terminal:
+npm install mysql2
+*/
+var mysql=require('mysql2');
+
+var connection = mysql.createconnection({
+ host:'localhost',
+ user:'root',
+ pasword:'write_your_mysql_root_password_here'
+ database: 'write_your_database_name_here'
+});
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+375 connecting Express and Mysql
+
+The Next Logical step
+intergrating MYSQL
+ WE HAVE 519 USERS
+
+app.js
+var connection = mysql.locateconnection({
+ host:'localhost',
+ user:'root',
+ database:'join_us'
+});
+
+var express = require('express');
+var mysql = require('mysql');
+var app = express();
+
+var connection = mysql.createconnection({
+host:'localhost',
+user:'root',
+database:'join_us'
+});
+
+app.get("/",function(req,res){
+res.send("you've reached the home page!');
+});
+
+node app.js enter
+
+app.get("/",function(req,res){
+//find count of users in db
+var q = "SELECT COUNT(*) FROM users";
+ connection.que COUNT
+//Respond with that count
+//res.send("we have" + count + "user in our db");
+
+bash:
+
+mysql>SELECT COUNT(*) FROM users; 
+    
+app.get("/",function (res,res){
+var q = SELECT COUNT(*) FROM users";
+connection.query(q,function(err,result){
+if(err)throw err;
+console.log(results);
+});
+
+
+app.get("/",function(req,res){
+//find count of user in db
+var q ="SELECT COUNT(*) AS count FROM users";
+conection.query(q,function(err,results){
+if(err) throw err;
+console.log(result[0].count;
+});
+
+});
+
+node app.js
+server running on 8080
+RowDataPacket {count:500}
+
+app.get("/",function(req,res){
+//find count of users in DB
+var q="SELECT COUNT(*) AS count FROM users";
+connection.query(q,function(err,results){
+ if(err) throw err;
+ var count = result[0].count;
+ });
+  //respond with that count
+  //res.send("we have" + count + "user in our db");
+ });
+});
+
+app.get("/joke"function(req,res){
+
+bash
+mysql>INSERT INTO users(email)
+      VALUES("Austin@gmail.com');
+
+browser
+
+WE HAVE 501 USERS IN OUR DB
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+376:
+code:connection express and mysql
+Add the mysql code inside of the root route:
+
+app.get("/",function(req,res){
+    var q='SELECT COUNT(*) as count FROM users':
+    connection.query(q,function(error,result){
+    if (error) throw error;
+  var msq="we have" + results[0].count + "users";
+  res.send(msg);
+  });
+}); 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+337 Adding EJS templates
+  WORKING WITH VIEW
+     Adding HTML to our web app
+
+All the Markup we need
+
+<h1> JOIN US </h1>
+<p class="lead"> enter your email to join<strong>518</strong>other on our waitlist.we are 100% not a cult.</p>
+<form method = "post" action ='/register'>
+ <input type = "text" class="form" placeholder = "enter your email">
+<button> join now </button>
+</form>
+
+     Embeded javascript EJS
+npm install --save ejs
+
+app.set("View engine","ejs");
+
+var mysql = require('mysql');
+var app = express();
+
+app.set("view engine","ejs");
+
+var connection = mysql.createconnection({
+host:'localhost',
+user:'root',
+database:'join_us'
+});
+
+app.get("/",function(req,res){
+
+var q=SELECT COUNT(*) AS count FROM users";
+connection 
+
+
+res.render('home');
+
+look for a view directory
+
+look for home.ejs in that directory
+
+create new folder name 
+view
+view-select make a new file
+home.ejs-select
+
+<h1> THIS IS HTML!!!!</H1.
+
+app.js
+
+app.js("/",function(req,res){
+
+ var q="SELECT COUNT(*) AS count FROM users";
+ connection.query(q,function(err,results){
+  if(err) throw err;
+  var count.result[0].count;
+
+  res.render("how");
+ });
+});
+
+home.ejs
+
+<h1>JOIN US</h1>
+
+<p class="lead"> enter your email to join <strong>518</strong>
+
+other on our waitlist.we are 100% not a cult.</p>
+
+<form method = "post" action = '/register'>
+  <input type = "text" class="form" placeholder ="enter your email">
+ <button> join now </button>
+ </form>
+});
+    app.get("/",fuction(req,res){
+  //find count of users in db
+ var q ="SELECT COUNT(*) AS count FROM users";
+   connection.query(q,function(err,result){
+   if(err) throw err;
+  var count = result[0].count;
+ //res.send("we have"+count+"users in our db");
+  res.render("home",{data = count});
+ });
+});
+
+home.ejs
+
+<h1>JOIN US</h1>
+
+<p>Enter your email to join<strong><%data%></strong> other on our waitlist.we are 100% not a cult.</p>
+
+<form>
+  <input type+"text" class+"form" placeholder ="enter your email">
+  <button> JOIN NOW </button>
+</form>
+
+node app.js
+server running on 8080!
+
+webbrowser
+
+JOIN US
+
+Enter your email to join 501 other on our wiatlist.we are 100% not a cult.
+
+-------------------      ----------
+| Enter your email |    | join now |
+-------------------      ----------
+
+bash
+
+mysql> INSERT INTO users(email) 
+       VALUES ('austin234@gmail.com');
+
+refresh the page in broswer
+
+JOIN US
+
+Enter your email to join 502 other on our waitlist we are 100% not a cult.
+     -----------------      ----------
+    | Enter your email |   | join now |
+     -----------------      ----------
+
+CODE: Adding EJS Templates
+
+<h1>JOIN US</h1>
+
+<p class = "lead">Enter your email to join<strong><%=count%></strong>other on our waitlist.we are 100% not a cult.</p>
+
+<form method ="post" action='/register'>
+ <input type = "text" class ="form" name= "email" placeholder = "Enter your email">
+<button> join now</button>
+</form>
+
+*NOTE , the name ="email" portion of the code doesn't get added until the next lecture,
+but i added it here to prevent any confusion form error messages.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+379 connecting the form
+     soooooooooooooooooo
+        what about that form......
+
+app.post("/register",function(req.res){
+  console.log("post REQEST SENT TO/REGISTER");
+});
+
+home.ejs
+
+<h1>JOIN US</h1>
+
+<p>Enter your email to join <strong<%=count%></strong>other on our waitlist.we are 100% not a cult.</p>
+
+<form method ="post" action='/register'>
+ <input type = "text"  name= "email class ="form" placeholder = "Enter your email">
+<button> join now</button>
+</form>
+
+node app.js
+server running on 8080!
+POST REQUEST SENT TO /REGISTER
+
+Some Annoying set up
+
+npm install --save body -parser
+
+var bodyparser = require("body-parser");
+
+app.use(bodyparser.urlencoded({extended:true
+}));
+
+var express = require('express');
+var mysql = require ('mysql');
+var bodyparser = require("body-parser");
+var app = express();
+
+app.set("view engine", "ejs");
+app.use(body parser.urlencoded({extended:true}));
+
+var connection =mysql.createconnection({
+ host:'localhost',
+ user:'root',
+ database:'join_us
+});
+
+Extracting From Data From Request Body
+
+var person = {email:req.body.email};
+  if (err) throw err;
+  var count = result[0].count;
+  res.render("home",{count:count});
+ });
+});
+
+app.post("/register" , function(req,res){
+ console.log("post REQEST SENT TO /REQESTER email is + req.body.email);
+});
+
+app.get("/joke",function(req,res){
+ var joke="<strong>What do you call a dog that does magic tricks?</strong><em res.send(joke);
+
+node app.js
+ server running on 8080!
+POST REQEST SENT TO/REGISTER email is c@gmail.com
+
+app.post("/"register",function(req,res){
+ console.log(res.body);
+//console.log("POST REQEUST SENT TO /REGISTER email is "+ req. body.email);
+});
+
+
+app.post("/register",function(req,res){
+ var email = req.body.email;
+
+ var person = {
+ email:faker.internet.email(),
+};
+
+bash
+
+app.get("/",function(req,res){
+
+var q="SELECT COUNT(*) AS count FROM users";
+
+conection.query(q,function(err,results){
+  if(err) throw err;
+ var count = results[0].count;
+
+ res.render("home",{data:count});
+});
+
+app.get("/joke",function(req,res){
+ var joke = "<strong> what do you call a dog
+
+home.ejs
+
+<h1>JOIN US</h1>
+
+<p> Enter your email to join <strong><%=data%> </strong> other on our waitlist.we</p>
+<form>
+    <input type = "text" class = "form" placeholder="enter your email">
+    <button>join now</button>
+</form>
+
+app.js
+
+app.get("/",fuction(req,res){
+
+  var q = "SELECT COUNT(*) AS count FROM users";
+  connection.query(q,fuction(err,result){
+   if(err) throw err;
+   var count = results[0].count;
+   res.render("home",{count:count,favorite_color:'purple'});
+ });
+});
+
+
+app.get("/"joke,function(req,res){
+  var joke = "<strong> what do you call a dog
+  res.send(joke);
+
+node app.js
+server running on 8080!
+
+refresh on the broswer
+
+JOIN US
+ Enter your email to join 502 other on our waitlist we are 100% not a cult
+
+     -----------------      ----------
+    | Enter your email |   | join now |
+     -----------------      ----------   
+
+
+CODE: adding ejs templates
+
+<h1> join us </h1>
+<p class = "lead"> Enter your email to join <strong><%=count%></strong>other on our waitlist.we are 100% not a cult.</p>
+
+ <form method = "post" action = '/register'>
+ <button> join us </button>
+</form>
+
+*NOTE ,the name ="email" portion of the code doesn't get added until next lecture,
+but i added it here to prevent any confusion from error messages.
+
+home.ejs
+<h1>join us</h1>
+<p> enter your email to join <strong><%=count%></strong>other on our waitlist.we</p>
+
+<form method = "post" action = "/register">
+ <input type = "text" name = "email" class="form" placeholder = "enter your email">
+<button>join now</button>
+</form>
+
+defining a POST route
+
+app.post('/register',function(req,res){
+  //a post route!
+});
+
+var q = "SELECT COUNT(*) AS count FROM users";
+  connection.query(q,function(err,results){
+   if(err) throw err;
+   var count = results[0].count;
+   res.render("home",{count:count});
+  });
+});
+
+app.post("/register",function(req,res){
+ console.log("post request sent to/register");
+});
+
+<h1>join us</h1>
+<p>Enter your email to join<strong><%=count%></strong>other on our waitlist.we</p>
+
+<form method = "post" action = "/register">
+ <input type = "text" name="email" class = "form" placeholder="enter your email">
+ <button>join now</button>
+</form>
+
+
+Some Annoying set up
+
+npm install --save body -parser
+
+var bodyparser = require("body-parser");
+
+app.use(bodyparser.urlencoded({extended:true
+}));
+
+node
+npm install --save body-parser 
+
+home.ejs
+var express = require('express');
+var mysql = require ('mysql');
+var bodyparser = require("body-parser");
+var app = express();
+
+app.set("view engine", "ejs");
+app.use(body parser.urlencoded({extended:true}));
+
+var connection =mysql.createconnection({
+ host:'localhost',
+ user:'root',
+ database:'join_us
+});
+
+Extracting From Data From Request Body
+
+var person = {email:req.body.email};
+ app.post("/"register",function(req,res){
+ console.log("post reqest sent to/register email is "+req.body.email);
+});
+
+bash
+node app.js
+server running on 8080!
+
+on the browser
+
+join us
+
+enter your email to join 502 other on our waitlist.we are 100% not a cult
+   -------------       ---------
+  | c@gmail.com |     | join now |
+   -------------       ----------
+
+server running on 8080!
+
+post request sent to/register email is c@gmail.com
+post request sent to/register email is a@gmail.com
+post request sent to/register email is b@gmail.com
+post request sent to/register email is shddjksdh@gmail.com
+
+app.post("/register",function(req,res){
+ console.log(req.body);
+//console.log
+});
+
+node
+node app.js
+
+server running on 8080!
+
+browser - refresh
+
+join us
+Enter your email to join 502 others on our waitlist.we are 100% not a cult.
+
+   -------------       ---------
+  | h@gmail.com |     | join now |
+   -------------       ----------
+
+node app.js
+server running on 8080!
+{email:'h@gmail.com}
+
+app.js
+app.post("/register",function (req,res){
+ var email = req.body.email;
+ connection.query
+});
+
+app.get("/joke",function(req,res){
+ var joke = "<strong>what do you call a dog that does magic tricks</strong>
+res send(joke)
+
+app.post("/register",function(req,res){
+ var email=req.body.email;
+ var person={
+   email:req.body.email
+};
+   connection.query('INSERT INTO USERS SET?" person,function(err,result){
+   if (err) throw err;
+   console.log (result);
+ });
+});
+
+
+node app.js
+server running on 8080!
+
+app.post("/ register",function(req,res){
+ var person = {
+   email:req.body.email
+ };
+
+connection.query('INSERT INTO USERS SET?',person,function(err,result){
+ if(err) throw err;
+ res.send("thanks for joining our wait list");
+});
+
+app.get("/joke",function(req,res){
+var joke = "<strong>what do you call a dog does magic tricks
+
+bash
+node app.js
+
+server running on 8080!
+
+browser
+
+join us
+Enter your email to join 503 others on our waitlist.we are 100% not a cult
+
+   -------------------              ---------
+  | janedoe@gmail.com |            | join now |
+   -------------------              ----------
+
+refresh
+
+thanks for joining our wait list!
+
+app.js
+app.post("/register",function(req,res){
+ var person ={
+   email req,body.email
+};
+
+connection.query('INSERT INTO USER SET?',person,function(err,result){
+   if(err) throw err;
+   res,redirect("/");
+ });
+});
+
+app.get("/joke",function(req,res){
+ var joke = "<strong> what do you call a dog that does magic trick
+
+node app.js
+
+server running on 8080!
+broswer
+
+join us
+ Enter your email to join 504 others on our waitlist.we are 100% not a cult.
+
+   -------------------              ---------
+  | dave@gmail.com    |            | join now |
+   -------------------              ----------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+CODE: Connecting the form
+
+the "/register' past rute:
+
+app.post('/register',function(req,res){
+  var person = {email:req.body.email};
+  connection.query('INSERT INTO users SET? ',
+  person,function(err,result){
+  console.log(err);
+  console.log(result);
+  res.redirect("/");
+  });
+});
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+381 STYLING PART1
+
+Joinus->new folder->app.css
+
+body{
+     color:purple;
+
+}
+
+app.js
+
+var express = require('express');
+var mysql = require('mysql');
+var bodyparse = require("body-parse");
+var app = express();
+
+app.set("view engine","ejs");
+app.use(body parse.urlencoded9{extended:true}));
+app.use(express.static(--dirname+"/public"));
+
+var connection = mysql.createconnector({
+ host:'localhost',
+ user:'root'
+ database:'join_us'
+
+node app.js
+server running on 8080!
+
+browser refresh font will be purple
+
+app.css
+
+body{
+      font-family:'roboto',sans-serit;
+    }
+
+body{
+      fornt-family:'roboto',sans-sent;
+      text-align:center;
+      text-shadow:0.05rem.1rem rgba(0,0,0.5);
+  color:rgb(66,69,86);
+
+body {
+      text-align:center;
+      text-shadow:0.05rem .1rem rgba(0,0,0,.5);
+      font-family:'roboto',san-serif;
+      color:rgb(66,69,86);
+      height:100%
+      backgroung-image:url('http://i.imaheur.com/BJP2Q1j.jpg');
+      background-size:cover;
+     }
+    
+      .flex-container{
+        display:flex;
+        justify-content:center;
+
+browser refresh
+
+body {
+      text-align:center;
+      text-shadow:0.05rem .1rem rgba(0,0,0,.5);
+      font-family:'roboto',san-serif;
+      color:rgb(66,69,86);
+      height:100%
+      backgroung-image:url('http://i.imaheur.com/BJP2Q1j.jpg');
+      background-size:cover;
+      font-weight:100;
+     }
+
+h1{
+   margin:0;
+   font-size:500px;
+   line-height:400px;
+   font-weight:100;
+  }
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+382
+    join us:HTML AND CSS FILES
+
+ADD THE CSS BELOW ON THE PREVIOUS CODE ABOVE
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+383:
+
+       line-height:1.5;
+       border:none;
+       border-bottom:3px solid#ebebeb;
+       margin-top:1--px;
+       width:700px;
+       font-size:2.9em;
+       color:white;
+       padding:5px 10px;
+       bacground:transparent;
+     }
+      input[type=text]:focus{
+      outline:none;
+     }
+      button:hover{
+             opacity:1;
+     }
+     
+     ::-webkit-input-placeholder{/*chrome/opera/safari*/
+     color:rgbh (255,255,255,0.8);
+     }
+
+broswer refresh hover area
+

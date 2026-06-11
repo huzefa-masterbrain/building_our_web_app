@@ -1,0 +1,25 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1"
+  },
+  "description": "my first git repositor\r <br>\r author-hzf",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huzefa-masterbrain/jetbrain-python-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huzefa-masterbrain/jetbrain-python-code/issues"
+  },
+  "homepage": "https://github.com/huzefa-masterbrain/jetbrain-python-code#readme"
+}
